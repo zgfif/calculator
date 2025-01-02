@@ -1,0 +1,35 @@
+body {
+    font-family: Arial, sans-serif;
+}
+
+td {
+    text-align: center;
+    background: grey;
+    width: 80px;
+    height: 60px;
+    color: white;
+    border: 1px solid black;
+}
+
+td:hover {
+    opacity: 0.8;
+    cursor: pointer;
+}
+
+#input_field {
+    padding: 5px;
+    text-align: right;
+    width: 100%;
+    font-size: 1em;
+}
+
+.orange_btns {
+    background: orange;
+}
+
+.btn {
+    /* prevent select buttons text */
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
+}
