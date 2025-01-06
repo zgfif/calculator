@@ -4,7 +4,7 @@ body {
 
 td {
     text-align: center;
-    background: grey;
+    background: #bec3c6;
     width: 80px;
     height: 60px;
     color: white;
@@ -32,4 +32,13 @@ td:hover {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+}
+
+.dark_grey {
+    background: #6F7378;
+}
+
+.screen {
+    pointer-events: none;
+    background: #454647;
 }
