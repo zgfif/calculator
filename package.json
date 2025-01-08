@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "SET NODE_ENV='development' && webpack",
+    "build": "NODE_ENV='development' webpack",
     "start": "webpack-dev-server",
     "prepare": "husky install"
   },
