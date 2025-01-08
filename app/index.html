@@ -4,39 +4,42 @@
         <link rel="stylesheet" type="css" href="styles.css">
     </head>
     <body>
-        <table>
-                <tr>
-                    <td class="screen" id="input_field" colspan="4">0</td>
-                </tr>
-                <tr>
-                    <td class="btn dark_grey" data-type="ac" data-value="ac" id="ac">AC</td>
-                    <td class="btn dark_grey" data-type="+-" data-value="+-">+/-</td>
-                    <td class="btn dark_grey" data-type="%" data-value="%">%</td>
-                    <td class="btn orange_btns" data-type="operation" data-value="/">&#247</td>
-                </tr>
-                <tr>
-                    <td class="btn number" data-type="number" data-value="1">1</td>
-                    <td class="btn number" data-type="number" data-value="2">2</td>
-                    <td class="btn number" data-type="number" data-value="3">3</td>
-                    <td class="btn orange_btns" data-type="operation" data-value="*">&#215;</td>
-                </tr>
-                <tr>
-                    <td class="btn number" data-type="number" data-value="4">4</td>
-                    <td class="btn number" data-type="number" data-value="5">5</td>
-                    <td class="btn number" data-type="number" data-value="6">6</td>
-                    <td class="btn orange_btns" data-type="operation" data-value="-">-</td>
-                </tr>
-                <tr>
-                    <td class="btn number" data-type="number" data-value="7">7</td>
-                    <td class="btn number" data-type="number" data-value="8">8</td>
-                    <td class="btn number" data-type="number" data-value="9">9</td>
-                    <td class="btn orange_btns" data-type="operation" data-value="+">+</td>
-                </tr>
-                <tr>
-                    <td class="btn number" data-type="number" data-value="0" colspan="2">0</td>
-                    <td class="btn" data-type="point" data-value=".">,</td>
-                    <td class="btn orange_btns" data-type="=" data-value="=">=</td>
-                </tr>
-        </table>
+        <div class="wndw">
+            <button id="themeButton" type="button">change color scheme</button>
+            <table>
+                    <tr>
+                        <td class="screen" id="input_field" colspan="4">0</td>
+                    </tr>
+                    <tr>
+                        <td class="btn operations_row" data-type="ac" data-value="ac" id="ac">AC</td>
+                        <td class="btn operations_row" data-type="+-" data-value="+-">+/-</td>
+                        <td class="btn operations_row" data-type="%" data-value="%">%</td>
+                        <td class="btn right_operational_column" data-type="operation" data-value="/">&#247</td>
+                    </tr>
+                    <tr>
+                        <td class="btn numeric_block" data-type="number" data-value="1">1</td>
+                        <td class="btn numeric_block" data-type="number" data-value="2">2</td>
+                        <td class="btn numeric_block" data-type="number" data-value="3">3</td>
+                        <td class="btn right_operational_column" data-type="operation" data-value="*">&#215;</td>
+                    </tr>
+                    <tr>
+                        <td class="btn numeric_block" data-type="number" data-value="4">4</td>
+                        <td class="btn numeric_block" data-type="number" data-value="5">5</td>
+                        <td class="btn numeric_block" data-type="number" data-value="6">6</td>
+                        <td class="btn right_operational_column" data-type="operation" data-value="-">-</td>
+                    </tr>
+                    <tr>
+                        <td class="btn numeric_block" data-type="number" data-value="7">7</td>
+                        <td class="btn numeric_block" data-type="number" data-value="8">8</td>
+                        <td class="btn numeric_block" data-type="number" data-value="9">9</td>
+                        <td class="btn right_operational_column" data-type="operation" data-value="+">+</td>
+                    </tr>
+                    <tr>
+                        <td class="btn numeric_block" id="zero" data-type="number" data-value="0" colspan="2">0</td>
+                        <td class="btn numeric_block" data-type="point" data-value=".">,</td>
+                        <td class="btn right_operational_column" id="equal" data-type="=" data-value="=">=</td>
+                    </tr>
+            </table>
+        </div>
     </body>
 </html>

@@ -1,44 +1,84 @@
+:root {
+  --body-background-color: white;
+
+  /* lime theme */
+  --font-color: rgb(83, 80, 80);
+  --numeric-block-bg-color: rgb(212, 228, 201);
+  --operations-block-bg-color: #c6ee32;
+  --operations-row-bg-color: rgb(161, 223, 138);
+  --window-bg-color: green;
+
+  /* initial gruvbox theme */
+  --font-color: white;
+  --numeric-block-bg-color: grey;
+  --operations-block-bg-color: orange;
+  --operations-row-bg-color: rgb(60, 60, 60);
+  --window-bg-color: rgb(42, 42, 42);
+}
+
 body {
-    font-family: Arial, sans-serif;
+  background-color: var(--body-background-color);
+  font-family: Arial, sans-serif;
+  padding: 24px;
+  color: var(--font-color);
 }
 
 td {
-    text-align: center;
-    background: #bec3c6;
-    width: 80px;
-    height: 60px;
-    color: white;
-    border: 1px solid black;
+  text-align: center;
+  width: 80px;
+  height: 60px;
+  font-size: 1.9em;
 }
 
 td:hover {
-    opacity: 0.8;
-    cursor: pointer;
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 #input_field {
-    padding: 5px;
-    text-align: right;
-    width: 100%;
-    font-size: 1em;
-}
-
-.orange_btns {
-    background: orange;
+  padding: 5px;
+  text-align: right;
+  width: 100%;
+  font-size: 1.9em;
 }
 
 .btn {
-    /* prevent select buttons text */
-    -webkit-user-select: none; /* Safari */
-    -ms-user-select: none; /* IE 10 and IE 11 */
-    user-select: none; /* Standard syntax */
-}
-
-.dark_grey {
-    background: #6F7378;
+  /* prevent select buttons text */
+  -webkit-user-select: none; /* Safari */
+  -ms-user-select: none; /* IE 10 and IE 11 */
+  user-select: none; /* Standard syntax */
 }
 
 .screen {
-    pointer-events: none;
-    background: #454647;
+  background-color: var(--window-bg-color);
+  pointer-events: none;
+}
+
+.wndw {
+  background-color: var(--window-bg-color);
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.numeric_block {
+  color: var(--font-color);
+  background-color: var(--numeric-block-bg-color);
+}
+
+.right_operational_column {
+  color: var(--font-color);
+  background-color: var(--operations-block-bg-color);
+}
+
+.operations_row {
+  color: var(--font-color);
+  background-color: var(--operations-row-bg-color);
+}
+
+#equal {
+  border-bottom-right-radius: 10px;
+}
+
+#zero {
+  border-bottom-left-radius: 10px;
 }
