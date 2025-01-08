@@ -3,6 +3,7 @@ import './styles.css';
 import { calculate } from './js/calculate.js';
 import { changeSign, percent } from './js/ariphmetic_functions.js';
 import { toggleTheme } from './js/toggle_theme.js';
+import { gruveboxTheme, greenTheme } from './js/themes.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const btns = document.querySelectorAll('.btn');
@@ -70,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  themeBtn.addEventListener('click', toggleTheme);
+  themeBtn.addEventListener('click', () => toggleTheme(gruveboxTheme, greenTheme));
 });
 
 function clearScreen() {
