@@ -1,5 +1,7 @@
 :root {
   --body-background-color: white;
+  --screen-font-size: 1.9em;
+  --buttons-font-size: 1.9em;
 
   /* lime theme */
   --font-color: rgb(83, 80, 80);
@@ -27,7 +29,7 @@ td {
   text-align: center;
   width: 80px;
   height: 60px;
-  font-size: 1.9em;
+  font-size: var(--buttons-font-size);
 }
 
 td:hover {
@@ -39,7 +41,7 @@ td:hover {
   padding: 5px;
   text-align: right;
   width: 100%;
-  font-size: 1.9em;
+  font-size: var(--screen-font-size);
 }
 
 .btn {

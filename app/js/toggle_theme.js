@@ -8,7 +8,7 @@ export function toggleTheme(theme1, theme2) {
   }
 }
 
-function getValueCssVariable(varName) {
+export function getValueCssVariable(varName) {
   const r = document.querySelector(':root'),
     rs = getComputedStyle(r);
 
@@ -17,7 +17,7 @@ function getValueCssVariable(varName) {
   return value;
 }
 
-function setValueCssVariable(varName, value) {
+export function setValueCssVariable(varName, value) {
   const r = document.querySelector(':root');
   r.style.setProperty(varName, value);
 }
