@@ -51,6 +51,8 @@ document.addEventListener('DOMContentLoaded', function () {
         expression = [];
         currentNumber = result + '';
 
+        setValueCssVariable('--screen-font-size', '1.9em');
+
         showOnScreen(result + '');
       } else if (typeOfButton == 'ac') {
         expression = [];
@@ -102,6 +104,12 @@ function clearScreen() {
 
 function showOnScreen(text = '') {
   if (text != '') {
-    document.querySelector('#input_field').textContent = text;
+    let handled = text
+      .toString()
+      .replace(/,/g, '')
+      .replace(/[\*\/\+\-]/g, ' $& ')
+      .replace(/\./g, ',');
+
+    document.querySelector('#input_field').textContent = handled;
   }
 }
