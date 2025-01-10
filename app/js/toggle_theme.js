@@ -1,3 +1,5 @@
+import { getValueCssVariable, setValueCssVariable } from './css_variables';
+
 export function toggleTheme(theme1, theme2) {
   for (let [key, value] of Object.entries(theme1)) {
     const currentValue = getValueCssVariable(key);
@@ -6,18 +8,4 @@ export function toggleTheme(theme1, theme2) {
 
     setValueCssVariable(key, newValue);
   }
-}
-
-export function getValueCssVariable(varName) {
-  const r = document.querySelector(':root'),
-    rs = getComputedStyle(r);
-
-  let value = rs.getPropertyValue(varName);
-
-  return value;
-}
-
-export function setValueCssVariable(varName, value) {
-  const r = document.querySelector(':root');
-  r.style.setProperty(varName, value);
 }

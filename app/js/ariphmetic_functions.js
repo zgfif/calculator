@@ -1,29 +1,15 @@
 // / * - + % change_sign
 
-export function devision(a, b) {
-  if (b != 0) {
-    return a / b;
-  } else {
-    return 'Cannot divide by zero';
-  }
-}
+export const devision = (a, b) => {
+  return b != 0 ? a / b : 'Cannot divide by zero';
+};
 
-export function multiply(a, b) {
-  return a * b;
-}
+export const multiply = (a, b) => a * b;
 
-export function subm(a, b) {
-  return a - b;
-}
+export const subm = (a, b) => a - b;
 
-export function summ(a, b) {
-  return a + b;
-}
+export const summ = (a, b) => a + b;
 
-export function percent(a) {
-  return a / 100;
-}
+export const percent = (a) => a / 100;
 
-export function changeSign(a) {
-  return -a;
-}
+export const changeSign = (a) => -a;

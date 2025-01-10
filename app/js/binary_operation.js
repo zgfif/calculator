@@ -1,22 +1,13 @@
 import { devision, multiply, subm, summ } from './ariphmetic_functions.js';
 
 export function binary_operation(arr) {
-  let result = 0;
+  const operations = { '/': devision, '*': multiply, '-': subm, '+': summ };
 
-  if (arr.length == 3) {
-    let number1 = parseFloat(arr[0]);
-    let mathOperation = arr[1];
-    let number2 = parseFloat(arr[2]);
-
-    if (mathOperation == '+') {
-      result = summ(number1, number2);
-    } else if (mathOperation == '/') {
-      result = devision(number1, number2);
-    } else if (mathOperation == '*') {
-      result = multiply(number1, number2);
-    } else if (mathOperation == '-') {
-      result = subm(number1, number2);
-    }
+  if (arr.length != 3) {
+    return 0;
   }
-  return result;
+
+  const [number1, ariphmeticFunction, number2] = arr;
+
+  return operations[ariphmeticFunction](number1, number2);
 }
