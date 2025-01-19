@@ -1,4 +1,4 @@
-import { calculate } from '../app/js/calculate.js';
+import calculate from '../app/js/calculate.js';
 import assert from 'assert';
 
 describe('calculate', () => {
