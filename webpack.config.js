@@ -1,17 +1,16 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 
-module.exports = {
+export default {
   entry: './app/index.js',
   module: {
     rules: [
-      { test: /\.svg$/, use: 'svg-inline-loader' },
       { test: /\.css$/, use: ['style-loader', 'css-loader'] },
       { test: /\.(js)$/, use: 'babel-loader' },
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(process.cwd(), 'dist'),
     filename: 'index_bundle.js',
   },
   plugins: [
@@ -20,5 +19,5 @@ module.exports = {
       inject: 'body',
     }),
   ],
-  mode: process.env.NODE_ENV === 'production' ? 'production' : 'development',
+  mode: 'development',
 };

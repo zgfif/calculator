@@ -6,7 +6,7 @@ export const devision = (a, b) => {
 
 export const multiply = (a, b) => a * b;
 
-export const subm = (a, b) => a - b;
+export const subt = (a, b) => a - b;
 
 export const summ = (a, b) => a + b;
 

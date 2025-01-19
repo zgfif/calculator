@@ -1,24 +1,30 @@
 import { binary_operation } from './binary_operation.js';
+import removeDoubleSigns from './remove_double_signs.js';
+import unary_operation from './unary_operation.js';
 
-export function calculate(arr) {
-  const array_length = arr.length;
+export default function calculate(arr) {
+  arr = removeDoubleSigns(arr);
 
-  if (array_length == 1) {
+  if (arr.length === 0) {
+    return 0;
+  }
+
+  if (arr.length === 1) {
     return arr[0];
   }
 
-  if (array_length == 3) {
-    return binary_operation(arr);
+  if (arr.length === 2) {
+    return unary_operation(arr);
   }
 
-  if (array_length > 3) {
-    if (array_length % 2 == 0) {
-      arr.pop();
+  if (arr.length >= 3) {
+    const binary_result = binary_operation(arr.slice(0, 3));
+
+    if (binary_result === 'Cannot divide by zero') {
+      return binary_result;
     }
 
-    const binaryResult = binary_operation(arr.slice(0, 3));
-
-    const new_array = [binaryResult, ...arr.slice(3)];
+    const new_array = [binary_result, ...arr.slice(3)];
 
     return calculate(new_array);
   }

@@ -1,10 +1,10 @@
-const prettier = require('eslint-plugin-prettier');
+import prettier from 'eslint-plugin-prettier';
 
-module.exports = [
+export default [
   {
     files: ['**/*.js', '**/*.jsx', '**/*.ts', '**/*.tsx'],
     languageOptions: {
-      ecmaVersion: 2021,
+      ecmaVersion: 'latest',
       sourceType: 'module',
     },
     plugins: {

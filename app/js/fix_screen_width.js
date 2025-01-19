@@ -1,4 +1,4 @@
-import { setValueCssVariable, getValueCssVariable } from './css_variables';
+import { setValueCssVariable, getValueCssVariable } from './css_variables.js';
 
 export function fixScreenWidth(screen, initialWidth = initialWidth) {
   const resizeObserver = new ResizeObserver((entries) => {
