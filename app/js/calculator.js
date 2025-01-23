@@ -25,9 +25,9 @@ export class Calculator {
   handleOperation(value) {
     if (this.currentNumber != '') {
       this.expression.push(this.currentNumber);
-      this.expression.push(value);
-      this.currentNumber = '';
     }
+    this.expression.push(value);
+    this.currentNumber = '';
 
     showOnScreen(this.expression);
   }
@@ -52,12 +52,13 @@ export class Calculator {
   handleEqual() {
     if (this.currentNumber != '') {
       this.expression.push(this.currentNumber);
+      this.currentNumber = '';
     }
-
-    this.currentNumber = calculate(this.expression);
-    this.expression = [this.currentNumber];
-
-    showOnScreen(this.currentNumber);
+    console.log('expresssion: ', this.expression);
+    let result = calculate(this.expression);
+    console.log('result: ', result);
+    this.expression = [result];
+    showOnScreen(result + '');
   }
 
   handleAc() {
@@ -69,10 +70,24 @@ export class Calculator {
 
   handleChangeSign() {
     if (!['0', ''].includes(this.currentNumber)) {
+      // if currentNumber is not 0 and not empty
       this.currentNumber = changeSign(parseFloat(this.currentNumber));
+      showOnScreen(this.expression + this.currentNumber);
+    } else if (this.currentNumber == '' || this.currentNumber == '0') {
+      // if currentNumber is empty or 0
+      if (this.expression.length > 0) {
+        let last_element_of_array = this.expression[this.expression.length - 1];
+        if (!isNaN(last_element_of_array)) {
+          // if last element is number
+          last_element_of_array = changeSign(parseFloat(last_element_of_array));
+          this.expression[this.expression.length - 1] = last_element_of_array;
+          showOnScreen(this.expression);
+        }
+      }
     }
 
-    showOnScreen(this.currentNumber);
+    console.log('this.expression: ', this.expression);
+    console.log('this.currentNumber: ', this.currentNumber);
   }
 
   handlePercent() {
