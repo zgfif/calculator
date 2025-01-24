@@ -74,4 +74,9 @@ describe('calculate', () => {
     let expression = ['+-', '7'];
     assert.equal(calculate(expression), 7);
   });
+
+  it('should return 0', () => {
+    let expression = ['0', '/', '9'];
+    assert.equal(calculate(expression), 0);
+  });
 });

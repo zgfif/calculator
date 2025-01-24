@@ -1,7 +1,7 @@
 import { By, Builder, Browser } from 'selenium-webdriver';
 import assert from 'assert';
 
-const URL = 'http://localhost:8081/';
+const URL = 'http://localhost:8080/';
 
 // testing the title of page with calculator
 (async () => {
@@ -11,7 +11,7 @@ const URL = 'http://localhost:8081/';
 
   let title = await driver.getTitle();
 
-  assert.equal(title, 'calculator');
+  assert.equal(title, 'Calculator');
 
   await driver.quit();
 })();
@@ -144,6 +144,43 @@ const URL = 'http://localhost:8081/';
   const result = await driver.findElement(By.id('input_field')).getText();
 
   assert.equal(result, '- 25');
+
+  await driver.quit();
+})();
+
+// 1 2 / 6 = 3 4 + 1 = 35
+(async () => {
+  let driver = await new Builder().forBrowser(Browser.CHROME).build();
+
+  await driver.get(URL);
+
+  await driver.findElement(By.xpath("//td[@data-value='1']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='2']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='/']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='6']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='=']")).click();
+
+  let onScreen = await driver.findElement(By.id('input_field')).getText();
+  assert.equal(onScreen, '2');
+
+  await driver.findElement(By.xpath("//td[@data-value='3']")).click();
+  await driver.findElement(By.xpath("//td[@data-value='4']")).click();
+
+  onScreen = await driver.findElement(By.id('input_field')).getText();
+  assert.equal(onScreen, '34');
+
+  await driver.findElement(By.xpath("//td[@data-value='+']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='1']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='=']")).click();
+
+  let result = await driver.findElement(By.id('input_field')).getText();
+  assert.equal(result, '35');
 
   await driver.quit();
 })();

@@ -1,6 +1,6 @@
 import { getValueCssVariable, setValueCssVariable } from './css_variables.js';
 
-export function toggleTheme(theme1, theme2) {
+function toggleTheme(theme1, theme2) {
   for (let [key, value] of Object.entries(theme1)) {
     const currentValue = getValueCssVariable(key);
 
@@ -9,3 +9,5 @@ export function toggleTheme(theme1, theme2) {
     setValueCssVariable(key, newValue);
   }
 }
+
+export default toggleTheme;

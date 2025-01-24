@@ -1,6 +1,6 @@
 import { percent, changeSign } from './arithmetic_functions.js';
 
-export default function unary_operation(arr) {
+function unary_operation(arr) {
   const operation = {
     '%': percent,
     '+-': changeSign,
@@ -18,3 +18,5 @@ export default function unary_operation(arr) {
     return 'invalid operation';
   }
 }
+
+export default unary_operation;

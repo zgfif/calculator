@@ -2,7 +2,7 @@ import { changeSign, percent } from './arithmetic_functions.js';
 import calculate from './calculate.js';
 import { clearScreen, showOnScreen } from './screen_functions.js';
 
-export class Calculator {
+class Calculator {
   BUTTONS = {
     operation: this.handleOperation.bind(this),
     number: this.handleNumber.bind(this),
@@ -33,11 +33,21 @@ export class Calculator {
   }
 
   handleNumber(value) {
-    if (this.currentNumber == '0') {
+    if (this.currentNumber === '') {
       this.currentNumber = value;
-    } else {
+
+      if (this.expression.length > 0) {
+        let last_element_of_array = this.expression[this.expression.length - 1];
+        if (!isNaN(last_element_of_array)) {
+          this.expression.pop();
+        }
+      }
+    } else if (this.currentNumber === '0') {
+      this.currentNumber = value;
+    } else if (this.currentNumber !== '0' && !isNaN(this.currentNumber)) {
       this.currentNumber += value;
     }
+
     showOnScreen(this.expression + this.currentNumber);
   }
 
@@ -54,9 +64,9 @@ export class Calculator {
       this.expression.push(this.currentNumber);
       this.currentNumber = '';
     }
-    console.log('expresssion: ', this.expression);
+
     let result = calculate(this.expression);
-    console.log('result: ', result);
+
     this.expression = [result];
     showOnScreen(result + '');
   }
@@ -85,9 +95,6 @@ export class Calculator {
         }
       }
     }
-
-    console.log('this.expression: ', this.expression);
-    console.log('this.currentNumber: ', this.currentNumber);
   }
 
   handlePercent() {
@@ -98,3 +105,5 @@ export class Calculator {
     showOnScreen(this.expression + this.currentNumber);
   }
 }
+
+export default Calculator;

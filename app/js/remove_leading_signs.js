@@ -1,4 +1,4 @@
-export default function removeLeadingSigns(arr) {
+function removeLeadingSigns(arr) {
   let i = 0;
   let indexses = [];
 
@@ -16,3 +16,5 @@ export default function removeLeadingSigns(arr) {
 
   return arr;
 }
+
+export default removeLeadingSigns;

@@ -1,18 +1,18 @@
 import assert from 'assert';
-import { devision, multiply, subt, summ, percent, changeSign } from '../app/js/arithmetic_functions.js';
+import { division, multiply, subtract, sum, percent, changeSign } from '../app/js/arithmetic_functions.js';
 
 describe('arithmetic_functions', () => {
-  describe('devision', () => {
+  describe('division', () => {
     it('should return zero', () => {
-      assert.equal(devision(0, 2), 0);
+      assert.equal(division(0, 2), 0);
     });
 
     it('should return message', () => {
-      assert.equal(devision(20, 0), 'Cannot divide by zero');
+      assert.equal(division(20, 0), 'Cannot divide by zero');
     });
 
     it('should return correct result', () => {
-      assert.equal(devision(5, 2), 2.5);
+      assert.equal(division(5, 2), 2.5);
     });
   });
 
@@ -32,35 +32,35 @@ describe('arithmetic_functions', () => {
 
   describe('subtraction', () => {
     it('should return zero', () => {
-      assert.equal(subt(2, 2), 0);
+      assert.equal(subtract(2, 2), 0);
     });
 
     it('should return float', () => {
-      assert.equal(subt(2, 1.2), 0.8);
+      assert.equal(subtract(2, 1.2), 0.8);
     });
 
     it('should return integer', () => {
-      assert.equal(subt(5, 2), 3);
+      assert.equal(subtract(5, 2), 3);
     });
     it('should return negative number', () => {
-      assert.equal(subt(2, 5), -3);
+      assert.equal(subtract(2, 5), -3);
     });
   });
 
   describe('sum', () => {
     it('should return zero', () => {
-      assert.equal(summ(2, -2), 0);
+      assert.equal(sum(2, -2), 0);
     });
 
     it('should return float', () => {
-      assert.equal(summ(2, 1.2), 3.2);
+      assert.equal(sum(2, 1.2), 3.2);
     });
 
     it('should return integer', () => {
-      assert.equal(summ(5, 2), 7);
+      assert.equal(sum(5, 2), 7);
     });
     it('should return negative number', () => {
-      assert.equal(summ(2, -5), -3);
+      assert.equal(sum(2, -5), -3);
     });
   });
 

@@ -1,11 +1,13 @@
-export function getValueCssVariable(varName) {
-  const r = document.querySelector(':root'),
-    rs = getComputedStyle(r);
+function getValueCssVariable(varName) {
+  const rootElement = document.querySelector(':root'),
+    rootStyles = getComputedStyle(rootElement);
 
-  return rs.getPropertyValue(varName);
+  return rootStyles.getPropertyValue(varName);
 }
 
-export function setValueCssVariable(varName, value) {
-  const r = document.querySelector(':root');
-  r.style.setProperty(varName, value);
+function setValueCssVariable(varName, value) {
+  const rootElement = document.querySelector(':root');
+  rootElement.style.setProperty(varName, value);
 }
+
+export { getValueCssVariable, setValueCssVariable };

@@ -5,28 +5,26 @@ describe('remove leading signs', () => {
   it('should return 33', () => {
     let actual = removeLeadingSigns(['*', '+-', '/', '*', '33']);
     let expected = ['33'];
-    assert.equal(actual[actual.length - 1], expected[0]);
-    assert.equal(actual.length, 1);
+
+    assert.deepEqual(actual, expected);
   });
 
-  it('should return 13', () => {
+  it('should return [13, *, 13]', () => {
     let actual = removeLeadingSigns(['*', '+-', '13', '*', '33']);
-    let expected = '13';
-    assert.equal(actual[0], expected);
-    assert.equal(actual.length, 3);
+    let expected = ['13', '*', '33'];
+
+    assert.deepEqual(actual, expected);
   });
 
   it('should not change', () => {
     let actual = removeLeadingSigns(['10', '*', '3']);
-    assert.equal(actual[0], '10');
-    assert.equal(actual[1], '*');
-    assert.equal(actual[2], '3');
-    assert.equal(actual.length, 3);
+    let expected = ['10', '*', '3'];
+    assert.deepEqual(actual, expected);
   });
 
   it('should return empty array', () => {
     let actual = removeLeadingSigns(['-', '*', '/']);
 
-    assert.equal(actual.length, 0);
+    assert.deepEqual(actual, []);
   });
 });

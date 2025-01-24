@@ -1,11 +1,11 @@
 import { setValueCssVariable } from './css_variables.js';
 
-export function clearScreen() {
+function clearScreen() {
   document.querySelector('#input_field').textContent = '0';
   setValueCssVariable('--screen-font-size', '1.9em');
 }
 
-export function showOnScreen(text = '') {
+function showOnScreen(text = '') {
   if (text != '') {
     let handled = text
       .toString()
@@ -16,3 +16,5 @@ export function showOnScreen(text = '') {
     document.querySelector('#input_field').textContent = handled;
   }
 }
+
+export { clearScreen, showOnScreen };

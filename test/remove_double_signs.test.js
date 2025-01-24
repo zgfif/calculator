@@ -4,36 +4,42 @@ import assert from 'assert';
 describe('remove double signs', () => {
   it('should return new array', () => {
     const arr = ['55', '/', '/', '2', '-', '3'];
-    let result = removeDoubleSigns(arr);
-    assert.equal(result.length, 5, 'length of array');
-    assert.equal(result[2], 2);
+
+    let actual = removeDoubleSigns(arr);
+    let expected = ['55', '/', '2', '-', '3'];
+
+    assert.deepEqual(actual, expected, 'actual must be equal to expected');
   });
 
   it('should return empty array', () => {
     const arr = ['*', '/', '/', '+', '-', '+'];
-    let result = removeDoubleSigns(arr);
-    assert.equal(result.length, 0, 'length of array');
+    let actual = removeDoubleSigns(arr);
+
+    assert.deepEqual(actual, [], 'should retunn empty array');
   });
 
   it('should return empty array', () => {
     const arr = ['*', '4', '/', '+', '3', '+'];
-    let result = removeDoubleSigns(arr);
-    assert.equal(result.length, 3, 'length of array');
-    assert.equal(result.toString(), '4,+,3');
+    let actual = removeDoubleSigns(arr);
+    let expected = ['4', '+', '3'];
+
+    assert.deepEqual(actual, expected, 'actual must be equal to expected');
   });
 
   it('should return one number in array', () => {
     const arr = ['*', '/', '/', '+', '4', '+'];
-    let result = removeDoubleSigns(arr);
-    assert.equal(result.length, 1, 'length of array');
-    assert.equal(result[0], '4', 'element in array');
+    let actual = removeDoubleSigns(arr);
+    let expected = ['4'];
+
+    assert.deepEqual(actual, expected, 'invalid result');
   });
 
   // ['55', '/', '/', '2', '-', '3']
   it('should return one number in array', () => {
     const arr = ['55', '/', '/', '2', '-', '3'];
-    let result = removeDoubleSigns(arr);
-    assert.equal(result.length, 5, 'length of array');
-    assert.equal(result.toString(), '55,/,2,-,3', 'element in array');
+    let actual = removeDoubleSigns(arr);
+    let expected = ['55', '/', '2', '-', '3'];
+
+    assert.deepEqual(actual, expected, 'invalid result');
   });
 });

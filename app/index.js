@@ -1,9 +1,8 @@
 import './styles.css';
 
-import { toggleTheme } from './js/toggle_theme.js';
+import toggleTheme from './js/toggle_theme.js';
 import { gruveboxTheme, greenTheme } from './js/themes.js';
-import { fixScreenWidth } from './js/fix_screen_width.js';
-import { Calculator } from './js/calculator.js';
+import Calculator from './js/calculator.js';
 
 // wait until all DOM loaded
 document.addEventListener('DOMContentLoaded', function () {
@@ -25,7 +24,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // toggle theme after clicking on button
   themeBtn.addEventListener('click', () => toggleTheme(gruveboxTheme, greenTheme));
-
-  // if the width of text more than the width of screen, make smaller font size
-  fixScreenWidth(screen, screen.offsetWidth);
 });
