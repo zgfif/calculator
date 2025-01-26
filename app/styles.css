@@ -4,14 +4,18 @@
   --buttons-font-size: 1.9em;
 
   /* lime theme */
+  --color-theme: lime;
   --font-color: rgb(83, 80, 80);
+  --screen-font-color: white;
   --numeric-block-bg-color: rgb(212, 228, 201);
   --operations-block-bg-color: #c6ee32;
   --operations-row-bg-color: rgb(161, 223, 138);
   --window-bg-color: green;
 
   /* initial gruvbox theme */
+  --color-theme: gruvbox;
   --font-color: white;
+  --screen-font-color: white;
   --numeric-block-bg-color: grey;
   --operations-block-bg-color: orange;
   --operations-row-bg-color: rgb(60, 60, 60);
@@ -57,6 +61,7 @@ td:hover {
 .screen {
   background-color: var(--window-bg-color);
   pointer-events: none;
+  color: var(--screen-font-color);
 }
 
 .wndw {
