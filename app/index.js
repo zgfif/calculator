@@ -1,15 +1,13 @@
 import './styles.css';
 
-// import toggleTheme from './js/toggle_theme.js';
-// import { gruveboxTheme, greenTheme } from './js/themes.js';
 import Calculator from './js/calculator.js';
 import applyTheme from './js/apply_theme.js';
+import themes from './js/themes.js';
 
 // wait until all DOM loaded
 document.addEventListener('DOMContentLoaded', function () {
   const btns = document.querySelectorAll('.btn'),
     themeBtn = document.querySelector('#themeButton'),
-    screen = document.querySelector('#input_field'),
     myCalculator = new Calculator();
 
   // for each button we attach 'click' event listener
@@ -23,10 +21,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  const availableThemes = Object.keys(themes);
+
   // read theme from localstorage after loading the page
   let currentTheme = localStorage.getItem('theme');
 
-  if (currentTheme == null) {
+  if (currentTheme == null || !availableThemes.includes(currentTheme)) {
     currentTheme = 'gruvebox';
 
     localStorage.setItem('theme', currentTheme);
@@ -39,7 +39,8 @@ document.addEventListener('DOMContentLoaded', function () {
   themeBtn.addEventListener('click', () => {
     currentTheme = localStorage.getItem('theme');
 
-    let newTheme = currentTheme === 'lime' || currentTheme == null ? 'gruvebox' : 'lime';
+    let newTheme =
+      currentTheme === 'lime' || currentTheme == null || !availableThemes.includes(currentTheme) ? 'gruvebox' : 'lime';
 
     localStorage.setItem('theme', newTheme);
 
