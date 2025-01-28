@@ -1,7 +1,6 @@
 function getValueCssVariable(varName) {
   const rootElement = document.querySelector(':root'),
     rootStyles = getComputedStyle(rootElement);
-
   return rootStyles.getPropertyValue(varName);
 }
 
