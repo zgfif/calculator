@@ -1,8 +1,14 @@
 import { clearScreen, showOnScreen } from '../app/js/screen_functions.js';
 import assert from 'assert';
-import 'jsdom-global/register.js';
+import jsdomGlobal from 'jsdom-global';
+
+let cleanup;
 
 describe('clearScreen', () => {
+  before(() => {
+    cleanup = jsdomGlobal();
+  });
+
   it('should not change screen', () => {
     document.body.innerHTML = '<div id="input_field">0</div>';
     clearScreen();
@@ -41,5 +47,9 @@ describe('clearScreen', () => {
 
       assert.equal(document.querySelector('#input_field').textContent, 'Cannot devide by zero');
     });
+  });
+
+  after(() => {
+    cleanup();
   });
 });

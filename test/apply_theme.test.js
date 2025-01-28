@@ -3,9 +3,13 @@ import { getValueCssVariable } from '../app/js/css_variables.js';
 import assert from 'assert';
 import jsdomGlobal from 'jsdom-global';
 
-jsdomGlobal();
+let cleanup;
 
 describe('applyTheme', () => {
+  before(() => {
+    cleanup = jsdomGlobal();
+  });
+
   it('should apply the theme', () => {
     assert.equal(getValueCssVariable('--window-bg-color'), '');
 
@@ -20,5 +24,9 @@ describe('applyTheme', () => {
     applyTheme('gruvebox');
 
     assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
+  });
+
+  after(() => {
+    cleanup();
   });
 });

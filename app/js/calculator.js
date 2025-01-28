@@ -79,11 +79,11 @@ class Calculator {
   }
 
   handleChangeSign() {
-    if (!['0', ''].includes(this.currentNumber)) {
+    if (!['0', '', '0.'].includes(this.currentNumber)) {
       // if currentNumber is not 0 and not empty
-      this.currentNumber = changeSign(parseFloat(this.currentNumber));
+      this.currentNumber = changeSign(parseFloat(this.currentNumber)) + '';
       showOnScreen(this.expression + this.currentNumber);
-    } else if (this.currentNumber == '' || this.currentNumber == '0') {
+    } else if (this.currentNumber === '' || this.currentNumber === '0') {
       // if currentNumber is empty or 0
       if (this.expression.length > 0) {
         let last_element_of_array = this.expression[this.expression.length - 1];
@@ -98,8 +98,11 @@ class Calculator {
   }
 
   handlePercent() {
-    if (!['0', ''].includes(this.currentNumber)) {
-      this.currentNumber = percent(parseFloat(this.currentNumber));
+    if (!['0', '', '0.'].includes(this.currentNumber)) {
+      this.currentNumber = percent(parseFloat(this.currentNumber)) + '';
+    } else if (this.expression.length > 0 && !isNaN(this.expression[this.expression.length - 1])) {
+      this.expression[this.expression.length - 1] =
+        percent(parseFloat(this.expression[this.expression.length - 1])) + '';
     }
 
     showOnScreen(this.expression + this.currentNumber);
