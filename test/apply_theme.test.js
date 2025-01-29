@@ -26,6 +26,31 @@ describe('applyTheme', () => {
     assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
   });
 
+  it("should rise Error: The theme 'indigo' does not exist. Please choose a valid theme.", () => {
+    assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
+
+    let themeName = 'indigo';
+
+    assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
+    assert.throws(
+      () => {
+        applyTheme('indigo');
+      },
+      Error,
+      `The theme \'${themeName}\' does not exist. Please choose a valid theme.`
+    );
+  });
+
+  it('should rise Error message: theme name must be string', () => {
+    assert.throws(
+      () => {
+        applyTheme(123);
+      },
+      Error,
+      'The provided theme name must be a string.'
+    );
+  });
+
   after(() => {
     cleanup();
   });
