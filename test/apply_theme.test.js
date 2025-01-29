@@ -6,7 +6,7 @@ import jsdomGlobal from 'jsdom-global';
 let cleanup;
 
 describe('applyTheme', () => {
-  before(() => {
+  beforeEach(() => {
     cleanup = jsdomGlobal();
   });
 
@@ -19,7 +19,7 @@ describe('applyTheme', () => {
   });
 
   it('should change theme from lime to gruvebox', () => {
-    assert.equal(getValueCssVariable('--window-bg-color'), 'green');
+    assert.equal(getValueCssVariable('--window-bg-color'), '');
 
     applyTheme('gruvebox');
 
@@ -27,11 +27,9 @@ describe('applyTheme', () => {
   });
 
   it("should rise Error: The theme 'indigo' does not exist. Please choose a valid theme.", () => {
-    assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
-
     let themeName = 'indigo';
 
-    assert.equal(getValueCssVariable('--window-bg-color'), 'rgb(42, 42, 42)');
+    assert.equal(getValueCssVariable('--window-bg-color'), '');
     assert.throws(
       () => {
         applyTheme('indigo');
@@ -51,7 +49,7 @@ describe('applyTheme', () => {
     );
   });
 
-  after(() => {
+  afterEach(() => {
     cleanup();
   });
 });
