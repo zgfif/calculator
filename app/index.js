@@ -46,4 +46,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
     applyTheme(newTheme);
   });
+
+  document.body.style.display = 'flex';
 });
