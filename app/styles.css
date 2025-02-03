@@ -2,6 +2,7 @@
   --body-background-color: white;
   --screen-font-size: 1.9em;
   --buttons-font-size: 1.9em;
+  --calculator-width: 332px;
 
   /* lime theme */
   --color-theme: lime;
@@ -64,7 +65,7 @@ td:hover {
 .wndw {
   background-color: var(--window-bg-color);
   border-radius: 12px;
-  width: fit-content;
+  width: var(--calculator-width);
   height: fit-content;
 }
 
@@ -93,5 +94,5 @@ td:hover {
 
 table {
   table-layout: fixed;
-  width: 332px;
+  width: var(--calculator-width);
 }
