@@ -23,10 +23,12 @@
 }
 
 body {
+  box-sizing: border-box;
   background-color: var(--body-background-color);
   font-family: Arial, sans-serif;
-  padding: 24px;
   color: var(--font-color);
+  display: flex;
+  justify-content: center;
 }
 
 td {
@@ -34,7 +36,6 @@ td {
   width: 80px;
   height: 60px;
   font-size: var(--buttons-font-size);
-
   word-wrap: break-word; /* Allows text to break into multiple lines */
   overflow: hidden; /* Hides overflow if text exceeds */
 }
@@ -47,8 +48,10 @@ td:hover {
 #input_field {
   padding: 5px;
   text-align: right;
-  width: 100%;
   font-size: var(--screen-font-size);
+  background-color: var(--window-bg-color);
+  pointer-events: none;
+  color: var(--screen-font-color);
 }
 
 .btn {
@@ -58,16 +61,11 @@ td:hover {
   user-select: none; /* Standard syntax */
 }
 
-.screen {
-  background-color: var(--window-bg-color);
-  pointer-events: none;
-  color: var(--screen-font-color);
-}
-
 .wndw {
   background-color: var(--window-bg-color);
   border-radius: 12px;
   width: fit-content;
+  height: fit-content;
 }
 
 .numeric_block {
@@ -95,5 +93,5 @@ td:hover {
 
 table {
   table-layout: fixed;
-  width: 333px;
+  width: 332px;
 }
