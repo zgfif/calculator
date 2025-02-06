@@ -23,6 +23,11 @@
   --window-bg-color: rgb(42, 42, 42);
 }
 
+html,
+body {
+  touch-action: manipulation;
+}
+
 body {
   box-sizing: border-box;
   background-color: var(--body-background-color);
