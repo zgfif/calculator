@@ -26,6 +26,9 @@ class Calculator {
     if (this.currentNumber != '') {
       this.expression.push(this.currentNumber);
     }
+    if (isNaN(this.expression[this.expression.length - 1])) {
+      this.expression.pop();
+    }
     this.expression.push(value);
     this.currentNumber = '';
 
