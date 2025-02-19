@@ -183,4 +183,40 @@ const URL = 'http://localhost:8080/';
   assert.equal(result, '35');
 
   await driver.quit();
+
+  // screen bug test
+})();
+
+(async () => {
+  let driver = await new Builder().forBrowser(Browser.CHROME).build();
+
+  await driver.get(URL);
+
+  await driver.findElement(By.xpath("//td[@data-value='1']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='/']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='/']")).click();
+
+  let onScreen = await driver.findElement(By.id('input_field')).getText();
+  assert.equal(onScreen, '1 /');
+
+  await driver.quit();
+})();
+
+(async () => {
+  let driver = await new Builder().forBrowser(Browser.CHROME).build();
+
+  await driver.get(URL);
+
+  await driver.findElement(By.xpath("//td[@data-value='1']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='*']")).click();
+
+  await driver.findElement(By.xpath("//td[@data-value='-']")).click();
+
+  let onScreen = await driver.findElement(By.id('input_field')).getText();
+  assert.equal(onScreen, '1 -');
+
+  await driver.quit();
 })();
