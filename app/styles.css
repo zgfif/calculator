@@ -29,12 +29,14 @@ body {
 }
 
 body {
+  align-items: center;
   box-sizing: border-box;
-  background-color: var(--body-background-color);
+  /* background-color: var(--body-background-color); */
   font-family: Arial, sans-serif;
   color: var(--font-color);
   display: none;
   justify-content: center;
+  background-image: var(--body-bg-image);
 }
 
 td {
@@ -95,6 +97,10 @@ td:hover {
 
 #zero {
   border-bottom-left-radius: 10px;
+}
+
+#themeButton {
+  border-radius: 12px;
 }
 
 table {
